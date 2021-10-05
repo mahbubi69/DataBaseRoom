@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/listBukuFragment">
+    <fragment
+        android:id="@+id/listBukuFragment"
+        android:name="com.example.databaseroom.fragment.ListRakBukuFragment"
+        android:label="fragment_list_buku"
+        tools:layout="@layout/fragment_list_rak_buku" >
+        <action
+            android:id="@+id/action_listBukuFragment_to_addBukuFragment2"
+            app:destination="@id/addBukuFragment2" />
+        <action
+            android:id="@+id/action_listBukuFragment_to_edtRakBukuFragment"
+            app:destination="@id/edtRakBukuFragment" />
+        <action
+            android:id="@+id/action_listBukuFragment_to_listJenisBukuFragment"
+            app:destination="@id/listJenisBukuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addBukuFragment2"
+        android:name="com.example.databaseroom.fragment.AddRakBukuFragment"
+        android:label="fragment_add_buku"
+        tools:layout="@layout/fragment_add_rak_buku" >
+        <action
+            android:id="@+id/action_addBukuFragment2_to_listBukuFragment"
+            app:destination="@id/listBukuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/edtRakBukuFragment"
+        android:name="com.example.databaseroom.fragment.EdtRakBukuFragment"
+        android:label="fragment_edt_rak_buku"
+        tools:layout="@layout/fragment_edt_rak_buku" >
+        <action
+            android:id="@+id/action_edtRakBukuFragment_to_listBukuFragment"
+            app:destination="@id/listBukuFragment" />
+        <argument
+            android:name="passId"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </fragment>
+    <fragment
+        android:id="@+id/listJenisBukuFragment"
+        android:name="com.example.databaseroom.fragment.ListJenisBukuFragment"
+        android:label="fragment_list_jenis_buku"
+        tools:layout="@layout/fragment_list_jenis_buku" >
+        <action
+            android:id="@+id/action_listJenisBukuFragment_to_addJenisBukuFragment"
+            app:destination="@id/addJenisBukuFragment" />
+        <action
+            android:id="@+id/action_listJenisBukuFragment_to_listBukuFragment"
+            app:destination="@id/listBukuFragment" />
+        <action
+            android:id="@+id/action_listJenisBukuFragment_to_edtJenisBukuFragment"
+            app:destination="@id/edtJenisBukuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addJenisBukuFragment"
+        android:name="com.example.databaseroom.fragment.AddJenisBukuFragment"
+        android:label="fragment_add_jenis_buku"
+        tools:layout="@layout/fragment_add_jenis_buku" >
+        <action
+            android:id="@+id/action_addJenisBukuFragment_to_listJenisBukuFragment"
+            app:destination="@id/listJenisBukuFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/edtJenisBukuFragment"
+        android:name="com.example.databaseroom.fragment.EdtJenisBukuFragment"
+        android:label="fragment_edt_jenis_buku"
+        tools:layout="@layout/fragment_edt_jenis_buku" >
+        <action
+            android:id="@+id/action_edtJenisBukuFragment_to_listJenisBukuFragment"
+            app:destination="@id/listJenisBukuFragment" />
+    </fragment>
+</navigation>

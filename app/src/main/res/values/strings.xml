@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">DataBaseRoom</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!--    notif-->
+    <string name="channel_nama">channel nama</string>
+    <string name="channel_desc">channel desc</string>
+</resources>
