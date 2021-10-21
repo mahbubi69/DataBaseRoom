@@ -33,10 +33,10 @@ class RakBukuAdapter(
             val direction = ListRakBukuFragmentDirections.actionListBukuFragmentToEdtRakBukuFragment(passId = listdatarakbuku[position].id)
             it.findNavController().navigate(direction)
         }
-        holder.itemView.setOnClickListener {
-            val arah = it.findNavController().navigate(R.id.action_listBukuFragment_to_listJenisBukuFragment)
-            onClikHandler.onclikRakBuku(listdatarakbuku[position])
-        }
+//        holder.itemView.setOnClickListener {
+//            val arah = it.findNavController().navigate(R.id.action_listBukuFragment_to_listJenisBukuFragment)
+//            onClikHandler.onclikRakBuku(listdatarakbuku[position])
+//        }
 
         holder.binding.btnDelet.setOnClickListener {
             try {

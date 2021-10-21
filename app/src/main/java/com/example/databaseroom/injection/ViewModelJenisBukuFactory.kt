@@ -7,9 +7,9 @@ import com.example.databaseroom.repo.RepositoryJenisBuku
 import com.example.databaseroom.viewmodel.AddJenisBukuViewModel
 
 
-//view model pabrik
+//view model pabrik (mengelola view model)
 class ViewModelJenisBukuFactory(
-    private val addJenisBukuFactory: RepositoryJenisBuku
+    private val addJenisBukuFactory: RepositoryJenisBuku,
 ) : ViewModelProvider.NewInstanceFactory() {
     companion object {
         @Volatile

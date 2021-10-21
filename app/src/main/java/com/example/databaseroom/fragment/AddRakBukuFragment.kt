@@ -40,6 +40,7 @@ class AddRakBukuFragment : Fragment() {
     val textDesc = "data berhasil disimpan"
 
 
+    //get mvvm
     private val viewModel by lazy {
         val factory = context?.applicationContext?.let {
             ViewModelRakBukuFactory.getInstance(it)
@@ -49,7 +50,7 @@ class AddRakBukuFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View? {
         // Inflate the layout for this fragment
         _binding = FragmentAddRakBukuBinding.inflate(inflater, container, false)
@@ -58,16 +59,10 @@ class AddRakBukuFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
 //        //get notiv
         notificationManagerCompat = NotificationManagerCompat.from(requireContext())
-
-        binding.btnSimpan.setOnClickListener {
-            Toast.makeText(context, "data berhasial di simpan", Toast.LENGTH_SHORT).show()
-            saveDataRakBuku(it)
-            notifAddData()
-        }
         initiateViewDate()
+        saveDataRakBuku(view)
     }
 
     //view date
@@ -77,25 +72,36 @@ class AddRakBukuFragment : Fragment() {
     }
 
     fun saveDataRakBuku(view: View) {
-        val namaRakBuku = binding.edNamaRakBuku.text.toString()
-        val kata = binding.addKataKata.text.toString()
+        binding.btnSimpan.setOnClickListener {
+            val namaRakBuku = binding.edNamaRakBuku.text.toString().trim()
+            val kata = binding.addKataKata.text.toString().trim()
 
-        try {
+            if (namaRakBuku.isEmpty()) {
+                binding.edNamaRakBuku.error = "nama buku rak tidak boleh kosong"
+                binding.edNamaRakBuku.requestFocus()
+                return@setOnClickListener
+            }
 
-            viewModel.nambahRakBuku(
-                RakBukuEntity(
-                    jenisBuku = namaRakBuku,
-                    kata = kata,
-                    tanggal = date
+            if (kata.isEmpty()) {
+                binding.addKataKata.error = "kata tidak boleh kosong"
+                binding.addKataKata.requestFocus()
+                return@setOnClickListener
+            }
+
+            notifAddData()
+            try {
+                viewModel.nambahRakBuku(
+                    RakBukuEntity(
+                        jenisBuku = namaRakBuku,
+                        kata = kata,
+                        tanggal = date
+                    )
                 )
-            )
-
-//            }
-        } finally {
-            view.findNavController().popBackStack()
+            } finally {
+                Toast.makeText(context, "data berhasial di simpan", Toast.LENGTH_SHORT).show()
+                view.findNavController().popBackStack()
+            }
         }
-
-
     }
 
     //notificasi
