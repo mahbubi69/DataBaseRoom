@@ -16,7 +16,7 @@ android {
     defaultConfig {
         applicationId "com.example.databaseroom"
         minSdkVersion 29
-        targetSdkVersion 30
+        targetSdkVersion 31
         versionCode 1
         versionName "1.0"
 
@@ -82,5 +82,7 @@ dependencies {
     //popmenu
     implementation 'com.github.zawadz88.materialpopupmenu:material-popup-menu:4.1.0'
 
+    //rv
+    implementation "androidx.recyclerview:recyclerview:1.2.1"
 
 }

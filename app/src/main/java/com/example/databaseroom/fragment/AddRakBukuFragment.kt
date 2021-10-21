@@ -81,17 +81,7 @@ class AddRakBukuFragment : Fragment() {
         val kata = binding.addKataKata.text.toString()
 
         try {
-//            if (kata.isNotEmpty()) {
-//                Toast.makeText(
-//                    requireContext(),
-//                    "nama dan kata tidak boleh kosong",
-//                    Toast.LENGTH_SHORT
-//                ).show()
-//            }
-//            if (namaRakBuku.isNotEmpty()) {
-//                Toast.makeText(requireContext(), "nama rak tidak boleh kosong", Toast.LENGTH_SHORT)
-//                    .show()
-//            } else {
+
             viewModel.nambahRakBuku(
                 RakBukuEntity(
                     jenisBuku = namaRakBuku,
@@ -108,6 +98,7 @@ class AddRakBukuFragment : Fragment() {
 
     }
 
+    //notificasi
     fun notifAddData() {
         val build = NotificationCompat.Builder(requireContext(), Value.CHANEL_1)
             .setSmallIcon(R.drawable.ic_notif)
@@ -120,43 +111,6 @@ class AddRakBukuFragment : Fragment() {
 
 
     }
-
-//    private fun notif() {
-//        val builder1 = NotificationCompat.Builder(requireContext(), Value.CHANEL_1)
-//            .setSmallIcon(R.drawable.ic_notif)
-//            .setContentTitle("notif1")
-//            .setContentText("data sudah disimpan1")
-//            .setStyle(
-//                NotificationCompat.BigTextStyle()
-//                    .bigText("text panjang pemberitahuan1")
-//            )
-//            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-//
-//        val builder2 = NotificationCompat.Builder(requireContext(), Value.CHANEL_1)
-//            .setSmallIcon(R.drawable.ic_notif)
-//            .setContentTitle("notif2")
-//            .setContentText("data sudah disimpan2")
-//            .setStyle(
-//                NotificationCompat.BigTextStyle()
-//                    .bigText("text panjang pemberitahuan2")
-//            )
-//            .setPriority(NotificationCompat.PRIORITY_DEFAULT)
-//
-//
-//
-//
-//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-//            val nama = getString(R.string.channel_nama)
-//            val desc = getString(R.string.channel_desc)
-//            val importance = NotificationManager.IMPORTANCE_DEFAULT
-//            val channel = NotificationChannel(Value.CHANEL_1, nama, importance).apply {
-//                description = desc
-//            }
-//            val notificationManager: NotificationManager =
-//                ContextCompat.getSystemService() as NotificationManager
-//            notificationManager.createNotificationChannel(channel)
-//        }
-//    }
 
     override fun onDestroy() {
         super.onDestroy()

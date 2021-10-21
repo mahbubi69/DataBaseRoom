@@ -5,11 +5,10 @@ import java.util.*
 
 //pembantu
 class RakBukuHelper {
-
     companion object {
         fun getTodayDate(): String {
             val tanggal = Calendar.getInstance().time
-            val dataFormat = SimpleDateFormat("dd MMMM yyyy", Locale.ROOT)
+            val dataFormat = SimpleDateFormat("dd MM yyyy", Locale.ROOT)
             return dataFormat.format(tanggal)
         }
     }

@@ -13,7 +13,7 @@ class NotifAplication : Application() {
     }
 
     private fun createNotif() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             val builder1 =
                 NotificationChannel(
                     Value.CHANEL_1,
